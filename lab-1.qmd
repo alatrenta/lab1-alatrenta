@@ -1,6 +1,6 @@
 ---
 title: "Lab 1 - Data visualization"
-author: "[INSERT NAME]"
+author: Alex LaTrenta
 format: pdf
 editor: visual
 ---
@@ -18,9 +18,33 @@ library(tidyverse)
 
 (Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
 
+Problem 1:
+
+```{r}
+
+ggplot(data = midwest,
+       aes(x = popdensity)) +
+geom_histogram(binwidth = 10000) +
+ labs(x = "Population Density", 
+       y = "# of Midwestern Counties", 
+       title = "The Population Density in Midwestern Counties")
+
+```
+
+The graph is very right-skewed with most states having a population density significantly lower than 25,000 in the low thousands. There are some outliers with medium and large population density.
+
 ## Exercise 2
 
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+```{r}
+ggplot(data = midwest,
+       aes(x = percollege, y = percbelowpoverty, color = state)) +
+geom_point(alpha = .5) +
+  scale_color_viridis_d() +
+ labs(x = "% of People with College Degrees", 
+       y = "% of People Below Poverty", 
+       title = "The Poverty Line vs. College Degrees")
+```
+
 
 ## Exercise 3
 
@@ -28,11 +52,8 @@ library(tidyverse)
 
 ## Exercise 4
 
-
 ## Exercise 5
 
-
 ## Exercise 6
-
 
 ## Exercise 7
