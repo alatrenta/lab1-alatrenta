@@ -1,5 +1,5 @@
 ---
-title: "Lab 1 - Data visualization"
+title: "Lab 1 - Data visualization- Alex LaTrenta"
 author: Alex LaTrenta
 format: pdf
 editor: visual
