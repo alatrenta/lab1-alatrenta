@@ -31,7 +31,7 @@ geom_histogram(binwidth = 10000) +
 
 ```
 
-The graph is very right-skewed with most states having a population density significantly lower than 25,000 in the low thousands. There are some outliers with medium and large population density.
+The graph is very right-skewed with most counties having a population density significantly lower than 25,000 in the low thousands. There are some outliers with medium (~60,000) and large (~85,000) population densities which appear as thin bars on the graph's x axis. 
 
 ## Exercise 2
 
@@ -42,16 +42,29 @@ geom_point(alpha = .5) +
   scale_color_viridis_d() +
  labs(x = "% of People with College Degrees", 
        y = "% of People Below Poverty", 
-       title = "The Poverty Line vs. College Degrees")
+       title = "Rates of Poverty vs. College Degrees in Midwestern Counties")
 ```
 
 
 ## Exercise 3
 
-(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+Describe what you observe in the plot from the previous exercise. In your description, include similarities and differences in the patterns across states.
+
+Across most midwestern states, there is a negative linear relationship between the % of people under the poverty line and the % of people with college degrees. This implies that low rates of college degrees may be associated with higher levels of poverty. All states have a large amount of counties with the % College Degrees and % poverty between 10 to 20. OH and MI tend to have outlier counties with low % college degrees and high % poverty despite much variation. WI and IN tend to have more counties with high % college degrees and low % poverty. IL has outlier countries with both of the described characteristics. 
+
 
 ## Exercise 4
-
+```{r}
+ggplot(data = midwest,
+       aes(x = percollege, y = percbelowpoverty, color = state)) +
+geom_smooth(alpha = .5, se = FALSE) +
+  scale_color_viridis_d(TRUE) +
+facet_wrap("state") +
+ labs(x = "% of People with College Degrees", 
+       y = "% of People Below Poverty", 
+       title = "Rates of Poverty vs. College Degrees in Midwestern States")
+```
+I prefer this plot more because it is easier to visualize the differences between the states when they are separated in a grid. Furthermore, the linear format better summarizes the exact linear trends between the two variables which is visably clearer than a mass of dots. 
 ## Exercise 5
 
 ## Exercise 6
